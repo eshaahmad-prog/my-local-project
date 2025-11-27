@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Email Composer" icon-name="utility:email">
+        <div class="slds-p-around_medium">
+
+            <!-- FROM FIELD -->
+            <lightning-input 
+                label="From"
+                value={fromEmail}
+                disabled>
+            </lightning-input>
+
+            <!-- TO DROPDOWN -->
+            <lightning-combobox 
+                class="slds-m-top_small"
+                label="To"
+                value={selectedRecipient}
+                options={recipientOptions}
+                placeholder="Select Contact or Lead"
+                onchange={handleRecipientChange}>
+            </lightning-combobox>
+
+            <!-- SUBJECT -->
+            <lightning-input 
+                class="slds-m-top_small"
+                label="Subject"
+                value={subject}
+                onchange={handleSubject}>
+            </lightning-input>
+
+            <!-- BODY -->
+            <lightning-textarea
+                class="slds-m-top_small"
+                label="Body"
+                value={body}
+                rows="6"
+                onchange={handleBody}>
+            </lightning-textarea>
+
+            <!-- SEND BUTTON -->
+            <div class="slds-m-top_small">
+                <lightning-button 
+                    variant="brand" 
+                    label="Send" 
+                    onclick={sendEmail}>
+                </lightning-button>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>
